@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\Interface1.cs" />
+    <Compile Remove="Queries\NoodleUser\.cs" />
+    <Compile Remove="Queries\NoodleUser\Class1.cs" />
+    <Compile Remove="Queries\NoodleUser\GetAllUsersAsync.cs" />
+    <Compile Remove="QueryHandler\Class1.cs" />
+    <Compile Remove="ViewModel\Class1.cs" />
+    <Compile Remove="ViewModel\UserViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Interfaces\IUserService" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GoodNoodle.Domain\GoodNoodle.Domain.csproj" />
+    <ProjectReference Include="..\GoodNoodle.Infrastructure\GoodNoodle.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
