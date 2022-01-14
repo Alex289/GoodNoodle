@@ -1,0 +1,52 @@
+@import '../../../themes';
+
+.information-header {
+  align-items: center;
+  justify-content: center;
+}
+
+.group-information {
+  margin-left: auto;
+}
+
+.edit-button {
+  margin-left: 1rem;
+}
+
+.save-button {
+  margin-left: 0.7rem;
+}
+
+.reason-text {
+  margin-left: 1rem;
+}
+
+.left {
+  margin-left: auto;
+}
+
+.column {
+  background: nb-theme(background-basic-color-2);
+}
+
+.accordion-header-left {
+  margin-left: auto;
+  margin-right: 4rem;
+}
+
+.accordion-header {
+  background: nb-theme(background-primary-color-2);
+  height: 3rem;
+}
+
+.accordion-background {
+  background: nb-theme(color-primary-500);
+}
+
+.btn-divider {
+  margin-right: 1rem;
+}
+
+.btn-right {
+  float: right;
+}

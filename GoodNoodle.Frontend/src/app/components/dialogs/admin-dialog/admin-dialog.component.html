@@ -1,0 +1,33 @@
+<nb-card size="large">
+  <nb-card-body class="container">
+    <div
+      class="close-btn"
+      (click)="close(this.userStatus.toString(), this.userRole.toString())">
+      <nb-icon icon="close-outline"></nb-icon>
+    </div>
+    <h3>Edit</h3>
+    <label>Status</label>
+    <nb-select
+      placeholder="Select status"
+      [(selected)]="selectedStatus"
+      id="user-status">
+      <nb-option value="0">Pending</nb-option>
+      <nb-option value="1">Accepted</nb-option>
+      <nb-option value="2">Declined</nb-option>
+    </nb-select>
+
+    <label>Role</label>
+    <nb-select placeholder="Select role" [(selected)]="selectedRole">
+      <nb-option value="0">Admin</nb-option>
+      <nb-option value="1">User</nb-option>
+    </nb-select>
+
+    <button
+      nbButton
+      status="danger"
+      id="save-user"
+      (click)="close(selectedStatus, selectedRole)">
+      Save changes
+    </button>
+  </nb-card-body>
+</nb-card>

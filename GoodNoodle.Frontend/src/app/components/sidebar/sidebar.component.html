@@ -1,0 +1,46 @@
+<nb-layout-header *ngIf="this.isAuthenticated && this.userStatus">
+  <button
+    nbButton
+    id="create-group-btn"
+    (click)="openWindow()"
+    fullWidth
+    outline
+    status="warning"
+    size="large">
+    create group <nb-icon icon="plus"> </nb-icon>
+  </button>
+</nb-layout-header>
+
+<nb-layout-column
+  class="column"
+  *ngIf="this.isAuthenticated && this.userStatus">
+  <h5 class="group-title" *ngIf="this.groupsOfUser.length !== 0">My groups:</h5>
+  <nb-list>
+    <nb-list-item *ngFor="let group of groupsOfUser">
+      <button nbButton outline fullWidth [routerLink]="['group', group.id]">
+        <nb-user
+          shape="rectangle"
+          size="small"
+          [name]="group.name"
+          [picture]="group.image">
+        </nb-user>
+      </button>
+    </nb-list-item>
+  </nb-list>
+  <h5 class="group-title" *ngIf="this.joinableGroups.length !== 0">
+    Other groups:
+  </h5>
+  <nb-list>
+    <nb-list-item *ngFor="let group of joinableGroups">
+      <button nbButton outline fullWidth [routerLink]="['group', group.id]">
+        <nb-user
+          shape="rectangle"
+          size="small"
+          [name]="group.name"
+          [picture]="group.image">
+        </nb-user>
+      </button>
+    </nb-list-item>
+  </nb-list>
+  <div class="spacing"></div>
+</nb-layout-column>

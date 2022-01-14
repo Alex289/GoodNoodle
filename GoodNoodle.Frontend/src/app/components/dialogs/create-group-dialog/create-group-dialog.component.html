@@ -1,0 +1,25 @@
+<nb-card size="large">
+  <nb-card-body class="container">
+    <div class="close-btn" (click)="close()">
+      <nb-icon icon="close-outline"></nb-icon>
+    </div>
+    <h3>Edit</h3>
+    <input
+      type="text"
+      nbInput
+      placeholder="Name"
+      [(ngModel)]="groupName"
+      id="group-name" />
+    <input type="file" nbInput (change)="onFileChanged($event)" />
+    <sub>Image is optional</sub>
+
+    <button
+      type="submit"
+      nbButton
+      (click)="createNewGroup()"
+      id="submit-group"
+      class="open-window">
+      Create
+    </button>
+  </nb-card-body>
+</nb-card>

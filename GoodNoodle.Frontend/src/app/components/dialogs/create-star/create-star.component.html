@@ -1,0 +1,11 @@
+<nb-card size="large">
+  <nb-card-body class="container">
+    <nb-icon (click)="close(false)" icon="close-outline"></nb-icon>
+    <h3>Create star</h3>
+    <input type="text" nbInput placeholder="Reason" [(ngModel)]="reason" />
+
+    <button nbButton status="success" (click)="close(true)">
+      Save changes
+    </button>
+  </nb-card-body>
+</nb-card>

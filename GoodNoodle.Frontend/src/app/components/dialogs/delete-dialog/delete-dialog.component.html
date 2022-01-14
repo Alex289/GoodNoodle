@@ -1,0 +1,12 @@
+<nb-card size="large">
+  <nb-card-body class="container">
+    <sub (click)="close(false)">
+      <nb-icon icon="close-outline"></nb-icon>
+    </sub>
+    <h3>Delete</h3>
+    <p>
+      {{ message }}
+    </p>
+    <button nbButton status="danger" (click)="close(true)">Delete</button>
+  </nb-card-body>
+</nb-card>

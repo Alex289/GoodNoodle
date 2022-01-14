@@ -1,0 +1,24 @@
+nb-card {
+  width: 25em;
+}
+
+nb-icon {
+  margin-left: auto;
+  float: right;
+  cursor: pointer;
+}
+
+button {
+  margin-top: 2em;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+h3 {
+  margin-top: 0;
+}

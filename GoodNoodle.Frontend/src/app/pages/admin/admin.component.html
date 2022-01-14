@@ -1,0 +1,53 @@
+<nb-card>
+  <nb-card-body>
+    <nb-tabset>
+      <nb-tab
+        tabIcon="person-outline"
+        tabTitle="Users"
+        active="true"
+        lazyLoad="false">
+        <nb-card size="medium">
+          <nb-list>
+            <nb-list-item *ngFor="let user of users">
+              <nb-user
+                size="large"
+                [name]="user.email"
+                title="Status: {{ formatStatus(user.status) }}">
+              </nb-user>
+              <button
+                nbButton
+                class="end-items"
+                (click)="open(user)"
+                [id]="'edit-' + user.email.replace('@', '').replace('.', '')">
+                Edit
+              </button>
+              <button
+                nbButton
+                status="danger"
+                (click)="openDeleteUserDialog(user.id, user.fullName)">
+                Delete
+              </button>
+            </nb-list-item>
+          </nb-list>
+        </nb-card>
+      </nb-tab>
+      <nb-tab tabIcon="people-outline" tabTitle="Groups" lazyLoad="true">
+        <nb-card size="medium">
+          <nb-list>
+            <nb-list-item *ngFor="let group of groups">
+              <nb-user size="large" [name]="group.name" [picture]="group.image">
+              </nb-user>
+              <button
+                nbButton
+                status="danger"
+                class="end-items"
+                (click)="openDeleteGroupDialog(group.id, group.name)">
+                Delete
+              </button>
+            </nb-list-item>
+          </nb-list>
+        </nb-card>
+      </nb-tab>
+    </nb-tabset>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,40 @@
+<div class="nav-content">
+  <nb-icon class="toggle-btn" (click)="toggle()" icon="menu-outline"></nb-icon>
+  <h2 class="title">GoodNoodles</h2>
+  <a routerLink="/" class="home-link">
+    <nb-icon icon="star"></nb-icon>
+  </a>
+  <nb-search type="rotate-layout" *ngIf="loggedIn" id="search-btn"></nb-search>
+  <div class="wrap-right">
+    <nb-user
+      *ngIf="loggedIn"
+      [name]="userName"
+      title="{{ userStatus }}"
+      nbContextMenuTag="my-context-menu"
+      class="grid-item">
+    </nb-user>
+    <nb-icon
+      class="settings-btn grid-item"
+      icon="settings-2-outline"
+      *ngIf="loggedIn"
+      (click)="this.openUserSettingsDialog()"></nb-icon>
+    <button
+      *ngIf="loggedIn"
+      nbButton
+      status="basic"
+      (click)="logout()"
+      class="grid-item logout-btn"
+      id="logout-btn">
+      Logout
+    </button>
+
+    <div *ngIf="!loggedIn" class="btn-group">
+      <a routerLink="/login" class="grid-item">
+        <button nbButton status="basic">Login</button>
+      </a>
+      <a routerLink="/register" class="grid-item">
+        <button nbButton status="basic">Register</button>
+      </a>
+    </div>
+  </div>
+</div>

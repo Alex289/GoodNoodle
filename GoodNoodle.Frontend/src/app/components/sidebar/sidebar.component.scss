@@ -1,0 +1,27 @@
+@import '../../../themes';
+
+nb-user {
+  margin-right: auto;
+}
+
+.column {
+  background-color: nb-theme(background-basic-color-2);
+}
+
+.group-title {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+nb-list {
+  margin-bottom: 3rem;
+}
+
+nb-list-item {
+  border: none;
+}
+
+.spacing {
+  margin-top: 6em;
+}

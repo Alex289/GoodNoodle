@@ -1,0 +1,21 @@
+<nb-card size="large">
+  <nb-card-body class="container">
+    <div class="close-btn" (click)="close()">
+      <nb-icon icon="close-outline"></nb-icon>
+    </div>
+    <h5>Add "{{ userName }}" to groups</h5>
+    <nb-select placeholder="Select role" [(selected)]="role">
+      <nb-option value="0">Teacher</nb-option>
+      <nb-option value="1">Student</nb-option>
+    </nb-select>
+    <nb-list>
+      <nb-list-item *ngFor="let group of groups">
+        <nb-user size="large" [name]="group.name" [picture]="group.image">
+        </nb-user>
+        <button nbButton class="end-items" (click)="this.inviteToGroup(group)">
+          Invite to group
+        </button>
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
+</nb-card>

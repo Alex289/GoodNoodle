@@ -1,0 +1,55 @@
+@import 'themes';
+
+@import '~@nebular/theme/styles/globals';
+@import '~@nebular/auth/styles/globals';
+@import '~@nebular/theme/styles/globals';
+
+@import 'node_modules/ngx-toastr/toastr';
+
+@include nb-install() {
+  @include nb-theme-global();
+  @include nb-auth-global();
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+:is(nb-login, nb-register) form .form-control-group {
+  margin-bottom: 1em;
+}
+
+.another-action {
+  margin-top: 1em;
+  float: right;
+}
+
+:is(nb-login, nb-register) nb-checkbox {
+  margin-bottom: 1em;
+  float: right;
+}
+
+:is(nb-request-password-page) button {
+  margin-top: 1em;
+}
+
+::-webkit-scrollbar {
+  width: 0.3125rem;
+  height: 0.3125rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #13132b;
+  cursor: pointer;
+  border-radius: 0.15625rem;
+}
+::-webkit-scrollbar-track {
+  background: #252547;
+}

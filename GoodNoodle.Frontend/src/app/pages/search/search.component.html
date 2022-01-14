@@ -1,0 +1,15 @@
+<nb-card size="giant">
+  <nb-list>
+    <nb-list-item *ngFor="let user of users">
+      <nb-user
+        size="large"
+        [name]="user.fullName"
+        [title]="user.email"
+        [id]="user.email">
+      </nb-user>
+      <button nbButton class="end-items" (click)="open(user)">
+        Invite to groups
+      </button>
+    </nb-list-item>
+  </nb-list>
+</nb-card>

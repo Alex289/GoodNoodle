@@ -1,0 +1,27 @@
+<nb-card size="large">
+  <nb-card-body class="container">
+    <sub (click)="close(false)">
+      <nb-icon icon="close-outline"></nb-icon>
+    </sub>
+    <h3>Settings</h3>
+    <label>Email</label>
+    <input type="text" nbInput placeholder="Email" [(ngModel)]="email" />
+
+    <label>FullName</label>
+    <input type="text" nbInput placeholder="Status" [(ngModel)]="fullName" />
+
+    <button
+      nbButton
+      status="basic"
+      class="pwd-btn"
+      (click)="openChangePasswordDialog()">
+      Change password
+    </button>
+    <button nbButton status="danger" (click)="openDeleteDialog()">
+      Delete account
+    </button>
+    <button nbButton status="success" (click)="updateUser()">
+      Save changes
+    </button>
+  </nb-card-body>
+</nb-card>

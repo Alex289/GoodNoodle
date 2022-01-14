@@ -1,0 +1,30 @@
+nb-card {
+  width: 27em;
+}
+
+button,
+input {
+  margin: 1rem;
+}
+
+sub {
+  margin-top: 0;
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.close-btn {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+h3 {
+  margin-top: 0;
+}

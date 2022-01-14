@@ -1,0 +1,136 @@
+<nb-layout>
+  <nb-layout-header class="information-header">
+    <nb-user
+      [size]="'giant'"
+      [shape]="'rectangle'"
+      [picture]="group.image"
+      [name]="group.name">
+    </nb-user>
+    <div class="left">
+      <button
+        nbButton
+        status="danger"
+        class="btn-divider"
+        *ngIf="this.isInGroup"
+        (click)="openLeaveGroupDialog(this.currentUserId)">
+        Leave group
+      </button>
+      <button
+        nbButton
+        status="danger"
+        *ngIf="this.isTeacher || this.isAdmin"
+        class="left"
+        (click)="openDeleteGroupDialog()">
+        Delete group
+      </button>
+    </div>
+  </nb-layout-header>
+
+  <nb-layout-column class="column">
+    <nb-tabset>
+      <nb-tab
+        tabIcon="people-outline"
+        tabTitle="Students"
+        active="true"
+        lazyLoad="false">
+        <p *ngIf="this.users.length === 0">No user in group</p>
+        <nb-accordion>
+          <nb-accordion-item *ngFor="let user of users">
+            <nb-accordion-item-header class="accordion-header">
+              <p>{{ user.fullName }}</p>
+              <p class="accordion-header-left">
+                Star amount: {{ user.stars && user.stars.length }}
+              </p>
+            </nb-accordion-item-header>
+            <nb-accordion-item-body class="accordion-background">
+              <nb-card [size]="'small'">
+                <nb-card-body>
+                  <nb-list>
+                    <nb-list-item *ngFor="let star of user.stars">
+                      <nb-checkbox
+                        (checkedChange)="toggle($event, star)"></nb-checkbox>
+                      <input
+                        type="text"
+                        nbInput
+                        fullWidth
+                        [(ngModel)]="star.reason"
+                        [disabled]="!star.beingEdited"
+                        class="reason-text" />
+                      <div *ngIf="!star.beingEdited">
+                        <button
+                          nbButton
+                          class="edit-button"
+                          (click)="editStar(star)"
+                          *ngIf="this.isTeacher || this.isAdmin">
+                          edit
+                        </button>
+                      </div>
+                      <div *ngIf="star.beingEdited">
+                        <button
+                          nbButton
+                          class="save-button"
+                          (click)="saveStar(star)">
+                          save
+                        </button>
+                      </div>
+                    </nb-list-item>
+                  </nb-list>
+                </nb-card-body>
+              </nb-card>
+              <button
+                nbButton
+                status="success"
+                *ngIf="this.isTeacher || this.isAdmin"
+                class="btn-divider"
+                (click)="openAddStarDialog(user.id)">
+                Add star
+              </button>
+              <button
+                nbButton
+                status="danger"
+                *ngIf="this.isTeacher || this.isAdmin"
+                (click)="openDeleteStarDialog()">
+                Delete star
+              </button>
+              <button
+                nbButton
+                status="danger"
+                *ngIf="this.isTeacher || this.isAdmin"
+                class="btn-right"
+                (click)="openDeleteUserFromGroupDialog(user)">
+                Remove user from group
+              </button>
+            </nb-accordion-item-body>
+          </nb-accordion-item>
+        </nb-accordion>
+      </nb-tab>
+
+      <nb-tab
+        tabIcon="briefcase-outline"
+        tabTitle="Teacher"
+        active="true"
+        lazyLoad="false">
+        <p *ngIf="this.teacher.length === 0">No teacher in group</p>
+        <nb-list>
+          <div *ngIf="teacher.length === 0">No teacher in group</div>
+          <nb-list-item *ngFor="let user of teacher">
+            <nb-user
+              [name]="user.email"
+              title="{{ user.fullName }}"
+              nbContextMenuTag="my-context-menu">
+            </nb-user>
+
+            <button
+              nbButton
+              status="danger"
+              *ngIf="this.isTeacher || this.isAdmin"
+              class="left btn-right"
+              (click)="openDeleteUserFromGroupDialog(user)">
+              Remove user from group
+            </button>
+          </nb-list-item>
+        </nb-list>
+      </nb-tab>
+    </nb-tabset>
+  </nb-layout-column>
+</nb-layout>
